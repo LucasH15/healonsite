@@ -10,6 +10,7 @@ module.exports = {
     title: `healonsite`,
     siteUrl: `https://www.yourdomain.tld`
   },
+  trailingSlash: 'never',
   plugins: [
     {
       resolve: 'gatsby-source-sanity',
@@ -28,5 +29,14 @@ module.exports = {
         display: 'swap'
       }
     },
-    'gatsby-plugin-image', 'gatsby-plugin-sharp', 'gatsby-transformer-sharp', 'gatsby-plugin-styled-components']
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/intl`,
+        languages: [`fr`, `en`],
+        defaultLanguage: `fr`,
+        redirect: true
+      },
+    },
+    'gatsby-plugin-image', 'gatsby-plugin-sharp', 'gatsby-transformer-sharp']
 }
